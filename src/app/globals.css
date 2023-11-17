@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --secondary-color-rgb: 73,216,230; /* Example RGB for blue */
+  --secondary-color-rgb-2: 0,0,255; 
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+    --secondary-color-rgb: 73,216,230; /* Example RGB for blue */
+    --secondary-color-rgb-2: 0,0,255; /* Example RGB for yellow */
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+.background-url{
+  opacity: 90;
+  background: url("https://img.freepik.com/free-photo/ai-cloud-concept-with-cube_23-2149739756.jpg?w=740&t=st=1699527890~exp=1699528490~hmac=9d0f71f3503c3858fbd321bcf6a9c9b4412351c1bf52e18bdb1ba94f67cea424") center top / cover;
+}
+.card-gradient {
+  background: linear-gradient(
+    45deg,
+    rgba(var(--secondary-color-rgb), 0.2) 0%,
+    rgba(var(--secondary-color-rgb-2), 0.2) 50%
+  );
+}
+/* Add this to your styles.css or equivalent */
