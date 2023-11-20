@@ -16,7 +16,7 @@ const SignUp = () => {
     const response = await fetch("http://34.234.201.170/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ firstName,lastName, email, password }),
+      body: JSON.stringify({ tenantId:"c7008078-c6db-468b-add1-28bff0709e8e",firstName,lastName, email, password }),
     });
     console.log(response.json());
 
