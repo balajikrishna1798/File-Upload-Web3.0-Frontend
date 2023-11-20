@@ -13,7 +13,7 @@ const SignUp = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     // Call your registration endpoint
-    const response = await fetch("http://localhost:3001/auth/register", {
+    const response = await fetch("http://34.234.201.170/auth/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ firstName,lastName, email, password }),
