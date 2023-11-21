@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ConnectWallet from "./ConnectWallet";
 import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
@@ -8,14 +8,35 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { Menu, Transition } from "@headlessui/react"; // If using Headless UI
 
-const Header = ({ isSidebarOpen }: any) => {
+const Header = ({ isSidebarOpen,bgColor }: any) => {
   const { data: session, status } = useSession();
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const Logo = useSelector(
     (state: RootState) => state.organisationSettings.logo
   );
+  useEffect(() => {
+    // Function to handle scroll event
+    const handleScroll = () => {
+      // Check if the user has scrolled down a certain amount (e.g., 100 pixels)
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener("scroll", handleScroll);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="text-black bg-gray-300 py-3 mx-auto ">
+    <nav className={`fixed top-0 left-0 right-0 z-50 ${isScrolled ? "bg-white border-b border-gray-300" : ""} text-black py-3`}>
       <div
         className={`${
           isSidebarOpen ? "max-w-6xl" : "max-w-7xl"

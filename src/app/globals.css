@@ -41,3 +41,8 @@ body {
   );
 }
 /* Add this to your styles.css or equivalent */
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+  content: "" !important; /* This changes the arrow color to black */
+}

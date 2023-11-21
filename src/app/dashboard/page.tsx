@@ -1,9 +1,7 @@
 "use client";
 import Dashboard from "@/components/Dashboard";
 import React, { useState } from "react";
-import { Menu } from "@headlessui/react";
-import Link from "next/link";
-import { ChevronDownIcon, ShareIcon } from "@heroicons/react/24/solid";
+import { ShareIcon } from "@heroicons/react/24/solid";
 import DropdownMenu from "@/components/DropdownMenu";
 
 const page = () => {
