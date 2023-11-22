@@ -4,7 +4,7 @@ import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 
 const HotCollections = () => {
   const settings = {
@@ -15,16 +15,39 @@ const HotCollections = () => {
     slidesToScroll: 4,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    responsive: [
+      {
+        breakpoint: 1024, // for medium devices like tablets
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+      {
+        breakpoint: 640, // for small devices like phones
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
+
   return (
     <div className="mt-10">
       <h1 className="text-center text-3xl font-bold mb-7">Hot Collections</h1>
       <div className="max-w-screen-xl mx-auto ">
         <Slider {...settings}>
           <div className="p-4">
-            <div className=" max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-              <div className="relative">
-                <Image height={300} width={300} src="/coll-1.jpg" alt="" />
+            <div className="max-w-xs mx-auto bg-white border border-gray-200 rounded-lg shadow">
+              <div className="relative w-full">
+                <Image
+                  src="/coll-1.jpg"
+                  alt=""
+                  height={300} width={300}
+                  objectFit="cover" // Ensures the image covers the area nicely
+                  className="rounded-t-lg"
+                />{" "}
                 <div className="absolute z-20 -bottom-4 left-[40%] ">
                   <div className="rounded-full bg-white border-2 p-0.5 border-white">
                     <Image
@@ -77,7 +100,7 @@ const HotCollections = () => {
               </div>
             </div>
           </div>
-         
+
           <div className="p-4 slick-slide">
             <div className="max-w-sm mb-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
               <div className="relative">
@@ -172,10 +195,10 @@ function NextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", color: 'black' }}
+      style={{ ...style, display: "block", color: "black" }}
       onClick={onClick}
     >
-      <Icon icon="bi:arrow-right-circle-fill" style={{ fontSize: '24px' }} />
+      <Icon icon="bi:arrow-right-circle-fill" style={{ fontSize: "24px" }} />
     </div>
   );
 }
@@ -185,10 +208,10 @@ function PrevArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, display: "block", color: 'black' }}
+      style={{ ...style, display: "block", color: "black" }}
       onClick={onClick}
     >
-      <Icon icon="bi:arrow-left-circle-fill" style={{ fontSize: '24px' }} />
+      <Icon icon="bi:arrow-left-circle-fill" style={{ fontSize: "24px" }} />
     </div>
   );
 }
