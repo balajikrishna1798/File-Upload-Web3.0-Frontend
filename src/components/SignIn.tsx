@@ -7,7 +7,6 @@ const SignIn = () => {
   const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  console.log(email);
   
   const handleSignIn = async (e) => {
     e.preventDefault()
@@ -15,9 +14,7 @@ const SignIn = () => {
     if (result.error) {
       // Display the error message to the user
       console.log(result);
-    } else {
-      router.push("/")
-    }
+    } 
   }
   return (
     <form>

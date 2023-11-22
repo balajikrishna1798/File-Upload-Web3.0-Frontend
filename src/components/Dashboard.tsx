@@ -41,7 +41,7 @@ const Dashboard = ({ children }) => {
       {/* Header */}{" "}
       <FileUpload isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
       <header className="w-full">
-        <Header isSidebarOpen={isSidebarOpen}/>
+        <Header className={isSidebarOpen?"max-w-6xl" : "max-w-7xl"}/>
       </header>
       {/* Sidebar and Content */}
       <div className="flex flex-1 overflow-hidden">

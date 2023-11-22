@@ -10,7 +10,7 @@ import { Menu, Transition } from "@headlessui/react"; // If using Headless UI
 import { TruncatedWalletAddress } from "./TruncateFunction";
 import { cn } from "@/lib/utils";
 
-const Header = ({ isSidebarOpen, className }: any) => {
+const Header = ({ className }: any) => {
   const { data: session, status } = useSession();
   const MetaMaskAccount = useSelector(
     (state: RootState) => state.metaMask.account
@@ -19,6 +19,7 @@ const Header = ({ isSidebarOpen, className }: any) => {
     (state: RootState) => state.organisationSettings.logo
   );
   const [showCopied, setShowCopied] = useState(false);
+  console.log(status, session);
 
   const handleCopy = (e) => {
     e.stopPropagation();
@@ -29,14 +30,12 @@ const Header = ({ isSidebarOpen, className }: any) => {
   return (
     <nav
       className={cn(
-        `fixed top-0 left-0 right-0 z-10 text-black py-3 mx-auto transition-all duration-200 ease-in-out ${
-          isSidebarOpen ? "max-w-5xl" : "max-w-7xl"
-        }`,
+        `fixed top-0 left-0 right-0 z-10 text-black py-3 mx-auto transition-all duration-200 ease-in-out`,
         className
       )}
     >
       <div
-        className={` transform  container  flex justify-between items-center px-6`}
+        className={` transform max-w-screen-xl mx-auto  container  flex justify-between items-center px-6`}
       >
         <div className="flex items-center space-x-4">
           <Link href={"/"}>
@@ -225,7 +224,7 @@ const Header = ({ isSidebarOpen, className }: any) => {
                   <Menu.Item>
                     {({ active }) => (
                       <button
-                      onClick={() => signOut({ callbackUrl: "/" })}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                         className={`w-full mt-1 ${
                           active ? "bg-red-400" : "bg-red-500"
                         } block px-2 py-2 text-sm text-white`}

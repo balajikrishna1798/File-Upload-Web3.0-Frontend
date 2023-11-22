@@ -48,7 +48,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post("34.234.201.170:3001/auth/register", {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/register`, {
         tenantId: "e74cce10-48ed-4483-82fb-ff2b6e0dfbd8",
         firstName,
         lastName,
