@@ -1,15 +1,11 @@
 "use client";
-import BrowseCategory from "@/components/BrowseCategory";
 import Header from "@/components/Header";
-import HotCollections from "@/components/HotCollections";
-import LandingHeroSection from "@/components/LandingHeroSection";
-import NFTCards from "@/components/NFTCards";
-import NewCollections from "@/components/NewItems";
+import MetaMask from "@/components/MetaMask";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
-  console.log(window.location.hostname)
+
   useEffect(() => {
     // Function to handle scroll event
     const handleScroll = () => {
@@ -29,14 +25,22 @@ export default function Home() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
-    <div className="min-h-screen bg-white">
-      <Header className={`${isScrolled && "bg-[#fff] border-b border-gray-200"}`} />
-      <LandingHeroSection />
-      <NFTCards />
-      <HotCollections />
-      <NewCollections />
-      <BrowseCategory />
+    <div className="bg-white min-h-screen">
+      <Header
+        className={`text-white ${
+          isScrolled && "bg-[#403f83] border-b border-cyan-900"
+        }`}
+      />
+      <div className="wallet_background h-72 flex justify-center items-center mb-10">
+        <h1 className="text-5xl text-white font-bold">Wallet</h1>
+      </div>
+      <div className="max-w-7xl mx-auto">
+        <div className="flex">
+          <MetaMask />
+        </div>
+      </div>
     </div>
   );
 }

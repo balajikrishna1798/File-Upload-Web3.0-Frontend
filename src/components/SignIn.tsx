@@ -4,18 +4,19 @@ import { useSession, signIn } from "next-auth/react"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 const SignIn = () => {
-  const { data:session,status } = useSession()
   const router = useRouter()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  console.log(email);
+  
   const handleSignIn = async (e) => {
     e.preventDefault()
-    const result = await signIn('credentials',{callbackUrl:"/", email, password });
+    const result = await signIn('credentials',{redirect:false, email, password });
     if (result.error) {
       // Display the error message to the user
-      alert(result.error);
+      console.log(result);
     } else {
-      // The user is signed in, handle accordingly
+      router.push("/")
     }
   }
   return (

@@ -55,7 +55,7 @@ const Dashboard = ({ children }) => {
           {/* Toggle Button */}
           <button
             onClick={toggleSidebar}
-            className="absolute top-0 right-5 p-2 transform translate-x-full"
+            className="absolute z-[99] top-0 right-5 p-2 transform translate-x-full"
           >
             {isSidebarOpen ? (
               <ChevronLeftIcon className="bg-black text-white rounded-full p-1 h-6 w-6" />

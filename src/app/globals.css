@@ -31,7 +31,7 @@ body {
 }
 .background-url{
   opacity: 90;
-  background: url("https://img.freepik.com/free-photo/ai-cloud-concept-with-cube_23-2149739756.jpg?w=740&t=st=1699527890~exp=1699528490~hmac=9d0f71f3503c3858fbd321bcf6a9c9b4412351c1bf52e18bdb1ba94f67cea424") center top / cover;
+  background: url("https://madebydesignesia.com/themes/gigaland/images/background/subheader.jpg") center top / cover;
 }
 .card-gradient {
   background: linear-gradient(
@@ -45,4 +45,10 @@ body {
 .slick-next:before {
   color: black !important;
   content: "" !important; /* This changes the arrow color to black */
+}
+
+.wallet_background {
+  background-image: url(/walletBackground.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }

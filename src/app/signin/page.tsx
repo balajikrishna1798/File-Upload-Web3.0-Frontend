@@ -1,5 +1,6 @@
 'use client'
-import GoogleLogin from '@/components/GoogleLogin'
+import GoogleLogin from '@/components/Authentication'
+import Header from '@/components/Header'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
@@ -22,8 +23,12 @@ const Auth = () => {
         </>
       )
     }
+    if(status==="unauthenticated"){
   return (
+    <>
     <div className='background-url min-h-screen'>
+           
+
     <div className={`container mx-auto flex justify-between items-center px-6 ${isSignUp?'pt-10':'py-16'} max-w-7xl`}>
       <div className="w-1/2">
         <h1 className="text-5xl font-bold max-w-lg text-white mb-6">
@@ -39,7 +44,9 @@ const Auth = () => {
       </div>
       </div>
     </div>
-  )
+    </>
+  )}
+  return null;
 }
 
 export default Auth
